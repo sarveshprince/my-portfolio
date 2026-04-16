@@ -23,9 +23,14 @@ export function Navbar({ isDark, onThemeToggle }: NavbarProps) {
 
   return (
     <header
-      className={`fixed top-0 w-full z-50 bg-white/80 dark:bg-black/60 backdrop-blur-xl border-b border-gray-200 dark:border-white/20 shadow-sm transition-shadow duration-300 ${
-        scrolled ? 'shadow-md' : ''
-      }`}
+      className={`fixed top-0 w-full z-50 
+bg-white/90 dark:bg-black/60 
+backdrop-blur-xl 
+border-b border-gray-200 dark:border-white/20 
+shadow-[0_4px_20px_rgba(0,0,0,0.05)]
+transition-shadow duration-300 ${
+  scrolled ? 'shadow-[0_6px_30px_rgba(0,0,0,0.08)]' : ''
+}`}
     >
       <nav className="mx-auto w-full max-w-6xl px-4 py-4 sm:px-6">
         <div className="flex items-center justify-between">
