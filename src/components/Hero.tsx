@@ -20,7 +20,7 @@ export function Hero() {
         initial={{ opacity: 0, y: 36 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: 'easeInOut' }}
-        className="w-full rounded-2xl border border-white/20 bg-white/70 dark:bg-white/10 p-8 backdrop-blur-xl shadow-[0_0_50px_rgba(59,130,246,0.25)] transition-all duration-300 ease-in-out sm:p-12"
+        className="w-full relative overflow-hidden bg-gradient-to-br from-white/90 via-white/70 to-white/50 dark:from-white/10 dark:via-white/5 dark:to-transparent backdrop-blur-2xl border border-gray-200 dark:border-white/20 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_0_40px_rgba(59,130,246,0.15)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition before:duration-700 p-8 sm:p-12"
       >
         <p className="text-sm uppercase tracking-[0.24em] text-blue-300">AI & Data Science Engineer</p>
         <h1 className="mt-4 text-4xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-6xl">Sarvesh Kumar A</h1>
@@ -31,7 +31,7 @@ export function Hero() {
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
             href="#"
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/70 dark:bg-white/10 px-5 py-3 text-sm font-medium text-gray-900 dark:text-white backdrop-blur-xl transition-all duration-300 ease-in-out hover:scale-105"
+            className="inline-flex items-center gap-2 rounded-full border border-gray-200 dark:border-white/20 bg-white/90 dark:bg-white/10 px-5 py-3 text-sm font-medium text-gray-900 dark:text-white backdrop-blur-lg transition-all duration-300 shadow-sm hover:scale-105 hover:shadow-md"
           >
             Download Resume
           </a>
@@ -47,11 +47,10 @@ export function Hero() {
               className="
                 inline-flex h-11 w-11 items-center justify-center
                 rounded-full
-                border border-gray-400 dark:border-white/30
-                bg-white/60 dark:bg-white/10
-                backdrop-blur-xl
-                transition-all duration-300 ease-in-out
-                hover:scale-110 hover:shadow-lg
+                border border-gray-200 dark:border-white/20
+                bg-white/90 dark:bg-white/10
+                backdrop-blur-lg
+                transition-all duration-300 shadow-sm hover:scale-105 hover:shadow-md
               "
             >
               <Icon
@@ -71,11 +70,10 @@ export function Hero() {
             className="
               inline-flex h-11 w-11 items-center justify-center
               rounded-full
-              border border-gray-400 dark:border-white/30
-              bg-white/60 dark:bg-white/10
-              backdrop-blur-xl
-              transition-all duration-300 ease-in-out
-              hover:scale-110 hover:shadow-lg
+              border border-gray-200 dark:border-white/20
+              bg-white/90 dark:bg-white/10
+              backdrop-blur-lg
+              transition-all duration-300 shadow-sm hover:scale-105 hover:shadow-md
             "
           >
             <Mail
@@ -91,6 +89,11 @@ export function Hero() {
     </section>
   )
 }
+
+
+
+
+
 
 
 

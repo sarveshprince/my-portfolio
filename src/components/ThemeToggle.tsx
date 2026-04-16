@@ -12,11 +12,12 @@ export function ThemeToggle({ isDark, onToggle }: ThemeToggleProps) {
         inline-flex h-10 items-center justify-center
         rounded-full px-4
         text-xs font-semibold tracking-wide
-        transition-all duration-300 ease-in-out
-        border border-gray-400 dark:border-white/20
-        bg-white/80 dark:bg-white/10
+        transition-all duration-300
+        border border-gray-200 dark:border-white/20
+        bg-white/90 dark:bg-white/10
+        shadow-sm
         text-gray-900 dark:text-white
-        backdrop-blur-xl
+        backdrop-blur-lg
         hover:scale-105 hover:shadow-md
       "
     >
@@ -24,6 +25,11 @@ export function ThemeToggle({ isDark, onToggle }: ThemeToggleProps) {
     </button>
   )
 }
+
+
+
+
+
 
 
 

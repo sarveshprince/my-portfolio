@@ -174,7 +174,7 @@ export function LeetCodeDashboard() {
                   <motion.div
                     key={badge.displayName}
                     whileHover={{ scale: 1.05, rotate: -1 }}
-                    className="rounded-xl border border-white/20 bg-white/70 dark:bg-white/10 p-3"
+                    className="relative overflow-hidden bg-gradient-to-br from-white/90 via-white/70 to-white/50 dark:from-white/10 dark:via-white/5 dark:to-transparent backdrop-blur-2xl border border-gray-200 dark:border-white/20 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_0_40px_rgba(59,130,246,0.15)] p-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition before:duration-700"
                   >
                     <img src={badge.icon} alt={badge.displayName} loading="lazy" className="mx-auto h-10 w-10 object-contain" />
                     <p className="mt-2 text-center text-xs text-gray-600 dark:text-gray-400">{badge.displayName}</p>
@@ -194,7 +194,7 @@ export function LeetCodeDashboard() {
                     target="_blank"
                     rel="noreferrer"
                     whileHover={{ scale: 1.01, rotateX: 2, rotateY: -2 }}
-                    className="rounded-xl border border-white/20 bg-white/70 dark:bg-white/10 p-3 transition-all duration-300 ease-in-out"
+                    className="relative overflow-hidden bg-gradient-to-br from-white/90 via-white/70 to-white/50 dark:from-white/10 dark:via-white/5 dark:to-transparent backdrop-blur-2xl border border-gray-200 dark:border-white/20 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_0_40px_rgba(59,130,246,0.15)] p-3 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition before:duration-700"
                   >
                     <p className="text-sm font-medium text-gray-900 dark:text-white">{submission.title}</p>
                     <p className="mt-1 text-xs text-gray-600 dark:text-gray-400">{formatTimestamp(submission.timestamp)}</p>
@@ -265,7 +265,7 @@ function RadialProgress({ label, value, color }: { label: string; value: number;
   const offset = circumference - (Math.min(100, Math.max(0, value)) / 100) * circumference
 
   return (
-    <motion.div whileHover={{ scale: 1.03 }} className="rounded-xl border border-white/20 bg-white/70 dark:bg-white/10 p-4 text-center">
+    <motion.div whileHover={{ scale: 1.03 }} className="relative overflow-hidden bg-gradient-to-br from-white/90 via-white/70 to-white/50 dark:from-white/10 dark:via-white/5 dark:to-transparent backdrop-blur-2xl border border-gray-200 dark:border-white/20 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_0_40px_rgba(59,130,246,0.15)] p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition before:duration-700 text-center">
       <svg width="100" height="100" className="mx-auto -rotate-90">
         <circle cx="50" cy="50" r={radius} stroke="rgba(255,255,255,0.18)" strokeWidth="8" fill="transparent" />
         <motion.circle
@@ -296,7 +296,7 @@ function ProgressBar({ label, value, color }: { label: string; value: number; co
         <span>{label}</span>
         <span>{value.toFixed(1)}%</span>
       </div>
-      <div className="h-2 rounded-full bg-white/70 dark:bg-white/10">
+      <div className="h-2 rounded-full bg-white/90 dark:bg-white/10">
         <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: `${Math.min(100, Math.max(0, value))}%` }}
@@ -383,7 +383,7 @@ function ContestLineChart({ points }: { points: ContestPoint[] }) {
 
 function Panel({ children }: { children: ReactNode }) {
   return (
-    <div className="rounded-2xl border border-white/20 bg-white/70 dark:bg-white/10 p-6 backdrop-blur-xl shadow-[0_0_40px_rgba(59,130,246,0.25)] transition-all duration-300 ease-in-out">
+    <div className="relative overflow-hidden bg-gradient-to-br from-white/90 via-white/70 to-white/50 dark:from-white/10 dark:via-white/5 dark:to-transparent backdrop-blur-2xl border border-gray-200 dark:border-white/20 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_0_40px_rgba(59,130,246,0.15)] p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition before:duration-700">
       {children}
     </div>
   )
@@ -401,10 +401,10 @@ function DashboardSkeleton() {
         ))}
       </div>
       <Panel>
-        <div className="h-44 animate-pulse rounded-xl bg-white/70 dark:bg-white/10" />
+        <div className="h-44 animate-pulse rounded-xl bg-white/90 dark:bg-white/10" />
       </Panel>
       <Panel>
-        <div className="h-52 animate-pulse rounded-xl bg-white/70 dark:bg-white/10" />
+        <div className="h-52 animate-pulse rounded-xl bg-white/90 dark:bg-white/10" />
       </Panel>
     </div>
   )
@@ -436,6 +436,10 @@ function formatTimestamp(ts: string) {
   if (Number.isNaN(date.getTime())) return 'Unknown date'
   return date.toLocaleString()
 }
+
+
+
+
 
 
 

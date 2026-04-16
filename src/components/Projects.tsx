@@ -1,12 +1,13 @@
 import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
-import GithubIcon from '../assets/github.svg'
-import { projects } from '../data/portfolio'
-import { BrandIcon } from './BrandIcon'
+import GithubIcon from '../assets/github.svg?react'
+import { projects, socialLinks } from '../data/portfolio'
 import { Section } from './Section'
 
-const brandIconClass =
-  'w-6 h-6 text-black dark:text-white border border-black dark:border-white rounded-md p-1 transition hover:scale-110'
+const socialItems = [
+  { href: socialLinks.github, label: "GitHub", Icon: GithubIcon },
+];
+
 
 export function Projects() {
   return (
@@ -21,7 +22,7 @@ export function Projects() {
             transition={{ duration: 0.5, delay: idx * 0.1 }}
             whileHover={{ scale: 1.01, rotateX: 4, rotateY: -4 }}
             style={{ transformStyle: 'preserve-3d' }}
-            className="overflow-hidden rounded-2xl border border-white/20 bg-white/70 dark:bg-white/10 backdrop-blur-xl shadow-[0_0_50px_rgba(59,130,246,0.25)] transition-all duration-300 ease-in-out"
+            className="relative overflow-hidden bg-gradient-to-br from-white/90 via-white/70 to-white/50 dark:from-white/10 dark:via-white/5 dark:to-transparent backdrop-blur-2xl border border-gray-200 dark:border-white/20 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_0_40px_rgba(59,130,246,0.15)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition before:duration-700"
           >
             <div className="grid gap-0 md:grid-cols-2">
               <div className="relative h-64 overflow-hidden md:h-full">
@@ -44,29 +45,40 @@ export function Projects() {
 
                 <div className="mt-5 flex flex-wrap gap-2">
                   {project.tech.map((item) => (
-                    <span key={item} className="rounded-full border border-white/25 bg-white/70 dark:bg-white/10 px-3 py-1 text-xs text-gray-600 dark:text-gray-400">
+                    <span key={item} className="rounded-full border border-gray-200 dark:border-white/20 bg-white/90 dark:bg-white/10 px-3 py-1 text-xs text-gray-600 dark:text-gray-400">
                       {item}
                     </span>
                   ))}
                 </div>
 
                 <div className="mt-6 flex flex-wrap gap-3">
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/70 dark:bg-white/10 px-4 py-2 text-sm text-gray-900 dark:text-white backdrop-blur-xl transition-all duration-300 ease-in-out hover:scale-105"
-                  >
-                    <BrandIcon src={GithubIcon} label="GitHub" className={brandIconClass} />
-                    GitHub
-                  </a>
-                  <a
-                    href="#"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/70 dark:bg-white/10 px-4 py-2 text-sm text-gray-900 dark:text-white backdrop-blur-xl transition-all duration-300 ease-in-out hover:scale-105"
-                  >
+                  {socialItems.map(({ href, label, Icon }) => (
+                    <a
+                      key={label}
+                      href={href}
+                      target="_blank"
+                      rel="noreferrer"
+                      aria-label={label}
+                      className="
+                        inline-flex h-11 w-11 items-center justify-center
+                        rounded-full
+                        border border-gray-200 dark:border-white/20
+                        bg-white/90 dark:bg-white/10
+                        backdrop-blur-lg
+                        transition-all duration-300 shadow-sm hover:scale-105 hover:shadow-md
+                      "
+                    >
+                      <Icon
+                        className="
+                          w-5 h-5
+                          text-gray-900 dark:text-white
+                          transition-colors duration-300
+                        "
+                      />
+                    </a>
+                  ))}
                     <ExternalLink size={16} />
                     Live Demo
-                  </a>
                 </div>
               </div>
             </div>
@@ -76,6 +88,11 @@ export function Projects() {
     </Section>
   )
 }
+
+
+
+
+
 
 
 

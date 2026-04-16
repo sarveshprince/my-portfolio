@@ -125,7 +125,7 @@ export function LeetCode() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.5 }}
-        className="rounded-2xl border border-white/20 bg-white/70 dark:bg-white/10 p-6 backdrop-blur-xl transition-all duration-300 ease-in-out"
+        className="relative overflow-hidden bg-gradient-to-br from-white/90 via-white/70 to-white/50 dark:from-white/10 dark:via-white/5 dark:to-transparent backdrop-blur-2xl border border-gray-200 dark:border-white/20 rounded-2xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_0_40px_rgba(59,130,246,0.15)] transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition before:duration-700 p-6"
       >
         {loading ? <p className="text-sm text-gray-600 dark:text-gray-400">Loading LeetCode stats...</p> : null}
 
@@ -134,7 +134,7 @@ export function LeetCode() {
             <p className="text-sm text-amber-200">{error}</p>
             <button
               onClick={() => setRetryTick((prev) => prev + 1)}
-              className="rounded-full border border-white/25 bg-white/70 dark:bg-white/10 px-3 py-1 text-xs font-medium text-gray-900 dark:text-white transition-all duration-300 ease-in-out hover:scale-105"
+              className="rounded-full border border-gray-200 dark:border-white/20 bg-white/90 dark:bg-white/10 px-3 py-1 text-xs font-medium text-gray-900 dark:text-white transition-all duration-300 shadow-sm hover:scale-105 hover:shadow-md"
             >
               Retry
             </button>
@@ -151,7 +151,7 @@ export function LeetCode() {
               <StatCard label="Streak" value={view.streak} />
             </div>
 
-            <div className="rounded-xl border border-white/20 bg-white/70 dark:bg-white/10 p-4">
+            <div className="relative overflow-hidden bg-gradient-to-br from-white/90 via-white/70 to-white/50 dark:from-white/10 dark:via-white/5 dark:to-transparent backdrop-blur-2xl border border-gray-200 dark:border-white/20 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_0_40px_rgba(59,130,246,0.15)] p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition before:duration-700">
               <p className="mb-2 text-sm font-medium text-gray-900 dark:text-white">Recent Accepted Submissions</p>
               {view.recent.length ? (
                 <ul className="grid gap-2 text-sm text-gray-600 dark:text-gray-400">
@@ -182,12 +182,17 @@ function StatCard({ label, value }: StatCardProps) {
     <motion.div
       whileHover={{ scale: 1.03, rotateX: 4, rotateY: -4 }}
       style={{ transformStyle: 'preserve-3d' }}
-      className="rounded-xl border border-white/20 bg-white/70 dark:bg-white/10 p-4 transition-all duration-300 ease-in-out hover:shadow-[0_0_50px_rgba(59,130,246,0.25)]"
+      className="relative overflow-hidden bg-gradient-to-br from-white/90 via-white/70 to-white/50 dark:from-white/10 dark:via-white/5 dark:to-transparent backdrop-blur-2xl border border-gray-200 dark:border-white/20 rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.08)] dark:shadow-[0_0_40px_rgba(59,130,246,0.15)] p-4 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_15px_40px_rgba(0,0,0,0.12)] dark:hover:shadow-[0_0_40px_rgba(59,130,246,0.4)] before:pointer-events-none before:absolute before:inset-0 before:bg-gradient-to-r before:from-transparent before:via-white/40 before:to-transparent before:opacity-0 hover:before:opacity-100 before:transition before:duration-700"
     >
       <p className="text-xs text-gray-600 dark:text-gray-400">{label}</p>
       <p className="mt-1 text-xl font-semibold text-gray-900 dark:text-white">{value}</p>
     </motion.div>
   )
 }
+
+
+
+
+
 
 
