@@ -8,9 +8,22 @@ export function ThemeToggle({ isDark, onToggle }: ThemeToggleProps) {
     <button
       aria-label="Toggle theme"
       onClick={onToggle}
-      className="inline-flex h-10 items-center justify-center rounded-full border border-white/20 bg-white/10 px-4 text-xs font-semibold tracking-wide text-white backdrop-blur-xl transition-all duration-300 ease-in-out hover:scale-105 dark:text-white"
+      className="
+        inline-flex h-10 items-center justify-center
+        rounded-full px-4
+        text-xs font-semibold tracking-wide
+        transition-all duration-300 ease-in-out
+        border border-gray-400 dark:border-white/20
+        bg-white/80 dark:bg-white/10
+        text-gray-900 dark:text-white
+        backdrop-blur-xl
+        hover:scale-105 hover:shadow-md
+      "
     >
       {isDark ? 'LIGHT' : 'DARK'}
     </button>
   )
 }
+
+
+

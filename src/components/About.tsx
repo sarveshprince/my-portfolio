@@ -13,9 +13,9 @@ export function About() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.3 }}
         transition={{ duration: 0.5 }}
-        className="rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur-xl transition-all duration-300 ease-in-out sm:p-8"
+        className="rounded-2xl border border-white/20 bg-white/70 dark:bg-white/10 p-6 backdrop-blur-xl transition-all duration-300 ease-in-out sm:p-8"
       >
-        <p className="leading-relaxed text-slate-200">
+        <p className="leading-relaxed text-gray-600 dark:text-gray-400">
           I build scalable applications that combine algorithmic rigor with refined user experience. My focus spans
           AI-enabled systems, data-driven interfaces, and production-ready frontend architecture with a minimal,
           cinematic design language.
@@ -24,3 +24,5 @@ export function About() {
     </Section>
   )
 }
+
+

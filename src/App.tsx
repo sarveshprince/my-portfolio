@@ -10,32 +10,34 @@ import { Skills } from './components/Skills'
 import { Education } from './components/Education'
 
 function App() {
-  const [isDark, setIsDark] = useState(true)
+  const [theme, setTheme] = useState<'light' | 'dark'>('dark')
+  const isDark = theme === 'dark'
 
   useEffect(() => {
     const savedTheme = localStorage.getItem('theme')
-    const shouldUseDark = savedTheme ? savedTheme === 'dark' : true
-    setIsDark(shouldUseDark)
-    document.documentElement.classList.toggle('dark', shouldUseDark)
+    const initialTheme = savedTheme === 'light' ? 'light' : 'dark'
+    setTheme(initialTheme)
+    document.documentElement.classList.toggle('dark', initialTheme === 'dark')
   }, [])
 
+  useEffect(() => {
+    localStorage.setItem('theme', theme)
+  }, [theme])
+
   const toggleTheme = () => {
-    setIsDark((prev) => {
-      const next = !prev
-      document.documentElement.classList.toggle('dark', next)
-      localStorage.setItem('theme', next ? 'dark' : 'light')
-      return next
-    })
+    document.documentElement.classList.toggle('dark')
+    const nextTheme = document.documentElement.classList.contains('dark') ? 'dark' : 'light'
+    setTheme(nextTheme)
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-black via-gray-900 to-black dark:from-black dark:via-gray-900 dark:to-black">
-      <div className="pointer-events-none absolute -left-36 top-20 z-0 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl" />
-      <div className="pointer-events-none absolute -right-40 top-1/3 z-0 h-96 w-96 rounded-full bg-violet-500/20 blur-3xl" />
-      <div className="pointer-events-none absolute bottom-0 left-1/3 z-0 h-72 w-72 rounded-full bg-cyan-500/20 blur-3xl" />
+    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-gray-100 via-white to-gray-200 text-gray-900 dark:text-white transition-colors duration-300 dark:from-black dark:via-gray-900 dark:to-black">
+      <div className="pointer-events-none absolute -left-36 top-20 z-0 h-80 w-80 rounded-full bg-blue-500/20 blur-3xl transition-colors duration-300 dark:bg-blue-500/20" />
+      <div className="pointer-events-none absolute -right-40 top-1/3 z-0 h-96 w-96 rounded-full bg-sky-400/20 blur-3xl transition-colors duration-300 dark:bg-violet-500/20" />
+      <div className="pointer-events-none absolute bottom-0 left-1/3 z-0 h-72 w-72 rounded-full bg-cyan-400/20 blur-3xl transition-colors duration-300 dark:bg-cyan-500/20" />
 
       <Navbar isDark={isDark} onThemeToggle={toggleTheme} />
-      <main className="relative z-10 pb-10">
+      <main className="relative z-10 pb-10 pt-24 sm:pt-28">
         <Hero />
         <Education />
         <Skills />

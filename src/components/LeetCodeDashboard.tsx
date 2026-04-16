@@ -112,8 +112,8 @@ export function LeetCodeDashboard() {
   return (
     <section id="leetcode" className="relative z-10 mx-auto w-full max-w-6xl px-4 py-12 sm:px-6 lg:py-16">
       <div className="mb-8 sm:mb-10">
-        <h2 className="text-2xl font-semibold tracking-tight text-white sm:text-3xl">LeetCode Analytics</h2>
-        <p className="mt-2 text-sm text-slate-300">{data?.username ?? 'sarvesh__8228'}</p>
+        <h2 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-3xl">LeetCode Analytics</h2>
+        <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{data?.username ?? 'sarvesh__8228'}</p>
         <div className="mt-3 h-1 w-32 rounded-full bg-gradient-to-r from-blue-400 via-cyan-300 to-transparent" />
       </div>
 
@@ -139,7 +139,7 @@ export function LeetCodeDashboard() {
 
           <div className="grid gap-6 lg:grid-cols-2">
             <Panel>
-              <h3 className="mb-5 text-lg font-semibold text-white">Radial Progress</h3>
+              <h3 className="mb-5 text-lg font-semibold text-gray-900 dark:text-white">Radial Progress</h3>
               <div className="grid gap-4 sm:grid-cols-3">
                 <RadialProgress label="Easy" value={stats.easyPct} color="#22c55e" />
                 <RadialProgress label="Medium" value={stats.mediumPct} color="#eab308" />
@@ -148,7 +148,7 @@ export function LeetCodeDashboard() {
             </Panel>
 
             <Panel>
-              <h3 className="mb-5 text-lg font-semibold text-white">Distribution</h3>
+              <h3 className="mb-5 text-lg font-semibold text-gray-900 dark:text-white">Distribution</h3>
               <ProgressBar label="Easy" value={stats.easyPct} color="bg-green-500" />
               <ProgressBar label="Medium" value={stats.mediumPct} color="bg-yellow-500" />
               <ProgressBar label="Hard" value={stats.hardPct} color="bg-red-500" />
@@ -162,30 +162,30 @@ export function LeetCodeDashboard() {
               className="rounded-2xl border border-amber-300/30 bg-amber-500/10 p-6 shadow-[0_0_40px_rgba(251,191,36,0.25)]"
             >
               <p className="text-sm uppercase tracking-wider text-amber-200">Current Streak</p>
-              <p className="mt-2 text-4xl font-semibold text-white">{stats.streak} days</p>
+              <p className="mt-2 text-4xl font-semibold text-gray-900 dark:text-white">{stats.streak} days</p>
             </motion.div>
           </Panel>
 
           <div className="grid gap-6 lg:grid-cols-2">
             <Panel>
-              <h3 className="mb-4 text-lg font-semibold text-white">Badges</h3>
+              <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Badges</h3>
               <div className="grid grid-cols-2 gap-3 sm:grid-cols-3">
                 {(data?.badges ?? []).map((badge) => (
                   <motion.div
                     key={badge.displayName}
                     whileHover={{ scale: 1.05, rotate: -1 }}
-                    className="rounded-xl border border-white/20 bg-white/10 p-3"
+                    className="rounded-xl border border-white/20 bg-white/70 dark:bg-white/10 p-3"
                   >
                     <img src={badge.icon} alt={badge.displayName} loading="lazy" className="mx-auto h-10 w-10 object-contain" />
-                    <p className="mt-2 text-center text-xs text-slate-200">{badge.displayName}</p>
+                    <p className="mt-2 text-center text-xs text-gray-600 dark:text-gray-400">{badge.displayName}</p>
                   </motion.div>
                 ))}
-                {!(data?.badges?.length) ? <p className="text-sm text-slate-300">No badges found.</p> : null}
+                {!(data?.badges?.length) ? <p className="text-sm text-gray-600 dark:text-gray-400">No badges found.</p> : null}
               </div>
             </Panel>
 
             <Panel>
-              <h3 className="mb-4 text-lg font-semibold text-white">Recent Submissions</h3>
+              <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Recent Submissions</h3>
               <div className="grid gap-3">
                 {(data?.recentSubmissions ?? []).slice(0, 5).map((submission) => (
                   <motion.a
@@ -194,26 +194,26 @@ export function LeetCodeDashboard() {
                     target="_blank"
                     rel="noreferrer"
                     whileHover={{ scale: 1.01, rotateX: 2, rotateY: -2 }}
-                    className="rounded-xl border border-white/20 bg-white/10 p-3 transition-all duration-300 ease-in-out"
+                    className="rounded-xl border border-white/20 bg-white/70 dark:bg-white/10 p-3 transition-all duration-300 ease-in-out"
                   >
-                    <p className="text-sm font-medium text-white">{submission.title}</p>
-                    <p className="mt-1 text-xs text-slate-300">{formatTimestamp(submission.timestamp)}</p>
+                    <p className="text-sm font-medium text-gray-900 dark:text-white">{submission.title}</p>
+                    <p className="mt-1 text-xs text-gray-600 dark:text-gray-400">{formatTimestamp(submission.timestamp)}</p>
                   </motion.a>
                 ))}
                 {!(data?.recentSubmissions?.length) ? (
-                  <p className="text-sm text-slate-300">No recent submissions available.</p>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">No recent submissions available.</p>
                 ) : null}
               </div>
             </Panel>
           </div>
 
           <Panel>
-            <h3 className="mb-4 text-lg font-semibold text-white">Submission Heatmap</h3>
+            <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Submission Heatmap</h3>
             <HeatmapGrid points={heatmap} />
           </Panel>
 
           <Panel>
-            <h3 className="mb-4 text-lg font-semibold text-white">Contest Rating History</h3>
+            <h3 className="mb-4 text-lg font-semibold text-gray-900 dark:text-white">Contest Rating History</h3>
             <ContestLineChart points={contestPoints} />
           </Panel>
         </div>
@@ -248,8 +248,8 @@ function KpiGrid({ total, easy, medium, hard }: { total: number; easy: number; m
           whileHover={{ scale: 1.03, rotateX: 3, rotateY: -3 }}
         >
           <Panel>
-            <p className="text-sm text-slate-300">{item.label}</p>
-            <p className="mt-2 text-3xl font-semibold text-white">
+            <p className="text-sm text-gray-600 dark:text-gray-400">{item.label}</p>
+            <p className="mt-2 text-3xl font-semibold text-gray-900 dark:text-white">
               <CountUp target={item.value} />
             </p>
           </Panel>
@@ -265,7 +265,7 @@ function RadialProgress({ label, value, color }: { label: string; value: number;
   const offset = circumference - (Math.min(100, Math.max(0, value)) / 100) * circumference
 
   return (
-    <motion.div whileHover={{ scale: 1.03 }} className="rounded-xl border border-white/20 bg-white/10 p-4 text-center">
+    <motion.div whileHover={{ scale: 1.03 }} className="rounded-xl border border-white/20 bg-white/70 dark:bg-white/10 p-4 text-center">
       <svg width="100" height="100" className="mx-auto -rotate-90">
         <circle cx="50" cy="50" r={radius} stroke="rgba(255,255,255,0.18)" strokeWidth="8" fill="transparent" />
         <motion.circle
@@ -283,8 +283,8 @@ function RadialProgress({ label, value, color }: { label: string; value: number;
           strokeDasharray={circumference}
         />
       </svg>
-      <p className="mt-2 text-sm text-slate-300">{label}</p>
-      <p className="text-lg font-semibold text-white">{value.toFixed(1)}%</p>
+      <p className="mt-2 text-sm text-gray-600 dark:text-gray-400">{label}</p>
+      <p className="text-lg font-semibold text-gray-900 dark:text-white">{value.toFixed(1)}%</p>
     </motion.div>
   )
 }
@@ -292,11 +292,11 @@ function RadialProgress({ label, value, color }: { label: string; value: number;
 function ProgressBar({ label, value, color }: { label: string; value: number; color: string }) {
   return (
     <div className="mb-4 last:mb-0">
-      <div className="mb-1 flex items-center justify-between text-sm text-slate-300">
+      <div className="mb-1 flex items-center justify-between text-sm text-gray-600 dark:text-gray-400">
         <span>{label}</span>
         <span>{value.toFixed(1)}%</span>
       </div>
-      <div className="h-2 rounded-full bg-white/10">
+      <div className="h-2 rounded-full bg-white/70 dark:bg-white/10">
         <motion.div
           initial={{ width: 0 }}
           whileInView={{ width: `${Math.min(100, Math.max(0, value))}%` }}
@@ -335,7 +335,7 @@ function HeatmapGrid({ points }: { points: HeatPoint[] }) {
 
 function ContestLineChart({ points }: { points: ContestPoint[] }) {
   if (!points.length) {
-    return <p className="text-sm text-slate-300">No contest history available.</p>
+    return <p className="text-sm text-gray-600 dark:text-gray-400">No contest history available.</p>
   }
 
   const width = 900
@@ -383,7 +383,7 @@ function ContestLineChart({ points }: { points: ContestPoint[] }) {
 
 function Panel({ children }: { children: ReactNode }) {
   return (
-    <div className="rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur-xl shadow-[0_0_40px_rgba(59,130,246,0.25)] transition-all duration-300 ease-in-out">
+    <div className="rounded-2xl border border-white/20 bg-white/70 dark:bg-white/10 p-6 backdrop-blur-xl shadow-[0_0_40px_rgba(59,130,246,0.25)] transition-all duration-300 ease-in-out">
       {children}
     </div>
   )
@@ -401,10 +401,10 @@ function DashboardSkeleton() {
         ))}
       </div>
       <Panel>
-        <div className="h-44 animate-pulse rounded-xl bg-white/10" />
+        <div className="h-44 animate-pulse rounded-xl bg-white/70 dark:bg-white/10" />
       </Panel>
       <Panel>
-        <div className="h-52 animate-pulse rounded-xl bg-white/10" />
+        <div className="h-52 animate-pulse rounded-xl bg-white/70 dark:bg-white/10" />
       </Panel>
     </div>
   )
@@ -436,3 +436,6 @@ function formatTimestamp(ts: string) {
   if (Number.isNaN(date.getTime())) return 'Unknown date'
   return date.toLocaleString()
 }
+
+
+

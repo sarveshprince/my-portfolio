@@ -125,16 +125,16 @@ export function LeetCode() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, amount: 0.2 }}
         transition={{ duration: 0.5 }}
-        className="rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur-xl transition-all duration-300 ease-in-out"
+        className="rounded-2xl border border-white/20 bg-white/70 dark:bg-white/10 p-6 backdrop-blur-xl transition-all duration-300 ease-in-out"
       >
-        {loading ? <p className="text-sm text-slate-200">Loading LeetCode stats...</p> : null}
+        {loading ? <p className="text-sm text-gray-600 dark:text-gray-400">Loading LeetCode stats...</p> : null}
 
         {!loading && error ? (
           <div className="mb-4 flex flex-wrap items-center gap-3">
             <p className="text-sm text-amber-200">{error}</p>
             <button
               onClick={() => setRetryTick((prev) => prev + 1)}
-              className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs font-medium text-white transition-all duration-300 ease-in-out hover:scale-105"
+              className="rounded-full border border-white/25 bg-white/70 dark:bg-white/10 px-3 py-1 text-xs font-medium text-gray-900 dark:text-white transition-all duration-300 ease-in-out hover:scale-105"
             >
               Retry
             </button>
@@ -151,10 +151,10 @@ export function LeetCode() {
               <StatCard label="Streak" value={view.streak} />
             </div>
 
-            <div className="rounded-xl border border-white/20 bg-white/10 p-4">
-              <p className="mb-2 text-sm font-medium text-white">Recent Accepted Submissions</p>
+            <div className="rounded-xl border border-white/20 bg-white/70 dark:bg-white/10 p-4">
+              <p className="mb-2 text-sm font-medium text-gray-900 dark:text-white">Recent Accepted Submissions</p>
               {view.recent.length ? (
-                <ul className="grid gap-2 text-sm text-slate-300">
+                <ul className="grid gap-2 text-sm text-gray-600 dark:text-gray-400">
                   {view.recent.map((item) => (
                     <li key={item.titleSlug} className="truncate">
                       {item.title}
@@ -162,7 +162,7 @@ export function LeetCode() {
                   ))}
                 </ul>
               ) : (
-                <p className="text-sm text-slate-300">No recent submissions available.</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">No recent submissions available.</p>
               )}
             </div>
           </div>
@@ -182,10 +182,12 @@ function StatCard({ label, value }: StatCardProps) {
     <motion.div
       whileHover={{ scale: 1.03, rotateX: 4, rotateY: -4 }}
       style={{ transformStyle: 'preserve-3d' }}
-      className="rounded-xl border border-white/20 bg-white/10 p-4 transition-all duration-300 ease-in-out hover:shadow-[0_0_50px_rgba(59,130,246,0.25)]"
+      className="rounded-xl border border-white/20 bg-white/70 dark:bg-white/10 p-4 transition-all duration-300 ease-in-out hover:shadow-[0_0_50px_rgba(59,130,246,0.25)]"
     >
-      <p className="text-xs text-slate-300">{label}</p>
-      <p className="mt-1 text-xl font-semibold text-white">{value}</p>
+      <p className="text-xs text-gray-600 dark:text-gray-400">{label}</p>
+      <p className="mt-1 text-xl font-semibold text-gray-900 dark:text-white">{value}</p>
     </motion.div>
   )
 }
+
+

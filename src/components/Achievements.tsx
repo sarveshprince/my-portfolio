@@ -18,17 +18,19 @@ export function Achievements() {
             variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
             whileHover={{ scale: 1.03, rotateX: 5, rotateY: -5 }}
             style={{ transformStyle: 'preserve-3d' }}
-            className="rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur-xl transition-all duration-300 ease-in-out hover:shadow-[0_0_40px_rgba(59,130,246,0.3)]"
+            className="rounded-2xl border border-white/20 bg-white/70 dark:bg-white/10 p-6 backdrop-blur-xl transition-all duration-300 ease-in-out hover:shadow-[0_0_40px_rgba(59,130,246,0.3)]"
           >
             <div className="mb-4 inline-flex items-center rounded-full border border-emerald-300/30 bg-emerald-500/10 px-3 py-1 text-xs font-medium text-emerald-200">
               Highlight
             </div>
-            <h3 className="text-lg font-semibold text-white">{item.title}</h3>
-            <p className="mt-2 text-sm font-medium text-slate-200">{item.subtitle}</p>
-            <p className="mt-3 text-sm leading-relaxed text-slate-300">{item.note}</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{item.title}</h3>
+            <p className="mt-2 text-sm font-medium text-gray-600 dark:text-gray-400">{item.subtitle}</p>
+            <p className="mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-400">{item.note}</p>
           </motion.article>
         ))}
       </motion.div>
     </Section>
   )
 }
+
+

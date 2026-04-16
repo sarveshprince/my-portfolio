@@ -14,11 +14,11 @@ export function Education() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, amount: 0.3 }}
             transition={{ duration: 0.45, delay: idx * 0.08 }}
-            className="relative ml-10 rounded-2xl border border-white/20 bg-white/10 p-5 backdrop-blur-xl transition-all duration-300 ease-in-out"
+            className="relative ml-10 rounded-2xl border border-white/20 bg-white/70 dark:bg-white/10 p-5 backdrop-blur-xl transition-all duration-300 ease-in-out"
           >
             <span className="absolute -left-9 top-5 inline-flex h-6 w-6 rounded-full bg-blue-400 shadow-[0_0_40px_rgba(59,130,246,0.3)]" />
-            <h3 className="text-lg font-semibold text-white">{item.institute}</h3>
-            <p className="mt-1 text-sm text-slate-300">{item.detail}</p>
+            <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{item.institute}</h3>
+            <p className="mt-1 text-sm text-gray-600 dark:text-gray-400">{item.detail}</p>
             <p className="mt-2 text-sm font-medium text-blue-200">{item.metric}</p>
           </motion.article>
         ))}
@@ -26,3 +26,5 @@ export function Education() {
     </Section>
   )
 }
+
+

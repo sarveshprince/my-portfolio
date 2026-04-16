@@ -1,11 +1,17 @@
 import { motion } from 'framer-motion'
 import { Mail } from 'lucide-react'
-import GithubIcon from '../assets/github.svg'
-import InstagramIcon from '../assets/instagram.svg'
-import LinkedinIcon from '../assets/linkedin.svg'
+import GithubIcon from '../assets/github.svg?react'
+import InstagramIcon from '../assets/instagram.svg?react'
+import LinkedinIcon from '../assets/linkedin.svg?react'
 import { socialLinks } from '../data/portfolio'
+// import React from 'react'
 
-const brandIconClass = 'w-6 h-6 brightness-0 dark:brightness-100 transition'
+
+const socialItems = [
+  { href: socialLinks.github, label: "GitHub", Icon: GithubIcon },
+  { href: socialLinks.linkedin, label: "LinkedIn", Icon: LinkedinIcon },
+  { href: socialLinks.instagram, label: "Instagram", Icon: InstagramIcon },
+];
 
 export function Hero() {
   return (
@@ -14,60 +20,77 @@ export function Hero() {
         initial={{ opacity: 0, y: 36 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: 'easeInOut' }}
-        className="w-full rounded-2xl border border-white/20 bg-white/10 p-8 backdrop-blur-xl shadow-[0_0_50px_rgba(59,130,246,0.25)] transition-all duration-300 ease-in-out sm:p-12"
+        className="w-full rounded-2xl border border-white/20 bg-white/70 dark:bg-white/10 p-8 backdrop-blur-xl shadow-[0_0_50px_rgba(59,130,246,0.25)] transition-all duration-300 ease-in-out sm:p-12"
       >
         <p className="text-sm uppercase tracking-[0.24em] text-blue-300">AI & Data Science Engineer</p>
-        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-white sm:text-6xl">Sarvesh Kumar A</h1>
-        <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-200 sm:text-lg">
+        <h1 className="mt-4 text-4xl font-semibold tracking-tight text-gray-900 dark:text-white sm:text-6xl">Sarvesh Kumar A</h1>
+        <p className="mt-6 max-w-2xl text-base leading-relaxed text-gray-600 dark:text-gray-400 sm:text-lg">
           AI & Data Science student specializing in DSA, AI systems, and scalable applications.
         </p>
 
         <div className="mt-8 flex flex-wrap items-center gap-4">
           <a
             href="#"
-            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-5 py-3 text-sm font-medium text-white backdrop-blur-xl transition-all duration-300 ease-in-out hover:scale-105"
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/70 dark:bg-white/10 px-5 py-3 text-sm font-medium text-gray-900 dark:text-white backdrop-blur-xl transition-all duration-300 ease-in-out hover:scale-105"
           >
             Download Resume
           </a>
 
           <div className="flex items-center gap-3">
+          {socialItems.map(({ href, label, Icon }) => (
             <a
-              href={socialLinks.github}
+              key={label}
+              href={href}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-xl transition-all duration-300 ease-in-out"
-              aria-label="GitHub"
+              aria-label={label}
+              className="
+                inline-flex h-11 w-11 items-center justify-center
+                rounded-full
+                border border-gray-400 dark:border-white/30
+                bg-white/60 dark:bg-white/10
+                backdrop-blur-xl
+                transition-all duration-300 ease-in-out
+                hover:scale-110 hover:shadow-lg
+              "
             >
-              <img src={GithubIcon} alt="GitHub" className={brandIconClass} loading="lazy" />
+              <Icon
+                className="
+                  w-5 h-5
+                  text-gray-900 dark:text-white
+                  transition-colors duration-300
+                "
+              />
             </a>
-            <a
-              href={socialLinks.linkedin}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-xl transition-all duration-300 ease-in-out"
-              aria-label="LinkedIn"
-            >
-              <img src={LinkedinIcon} alt="LinkedIn" className={brandIconClass} loading="lazy" />
-            </a>
-            <a
-              href={socialLinks.instagram}
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-xl transition-all duration-300 ease-in-out"
-              aria-label="Instagram"
-            >
-              <img src={InstagramIcon} alt="Instagram" className={brandIconClass} loading="lazy" />
-            </a>
-            <a
-              href={socialLinks.email}
-              className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-white/10 text-white backdrop-blur-xl transition-all duration-300 ease-in-out hover:scale-105"
-              aria-label="Email"
-            >
-              <Mail size={18} />
-            </a>
-          </div>
+          ))}
+
+          {/* Email */}
+          <a
+            href={socialLinks.email}
+            aria-label="Email"
+            className="
+              inline-flex h-11 w-11 items-center justify-center
+              rounded-full
+              border border-gray-400 dark:border-white/30
+              bg-white/60 dark:bg-white/10
+              backdrop-blur-xl
+              transition-all duration-300 ease-in-out
+              hover:scale-110 hover:shadow-lg
+            "
+          >
+            <Mail
+              className="
+                w-5 h-5
+                text-gray-900 dark:text-white
+              "
+            />
+          </a>
+        </div>
         </div>
       </motion.div>
     </section>
   )
 }
+
+
+

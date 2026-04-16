@@ -2,9 +2,11 @@ import { motion } from 'framer-motion'
 import { ExternalLink } from 'lucide-react'
 import GithubIcon from '../assets/github.svg'
 import { projects } from '../data/portfolio'
+import { BrandIcon } from './BrandIcon'
 import { Section } from './Section'
 
-const brandIconClass = 'w-6 h-6 brightness-0 dark:brightness-100 transition'
+const brandIconClass =
+  'w-6 h-6 text-black dark:text-white border border-black dark:border-white rounded-md p-1 transition hover:scale-110'
 
 export function Projects() {
   return (
@@ -19,7 +21,7 @@ export function Projects() {
             transition={{ duration: 0.5, delay: idx * 0.1 }}
             whileHover={{ scale: 1.01, rotateX: 4, rotateY: -4 }}
             style={{ transformStyle: 'preserve-3d' }}
-            className="overflow-hidden rounded-2xl border border-white/20 bg-white/10 backdrop-blur-xl shadow-[0_0_50px_rgba(59,130,246,0.25)] transition-all duration-300 ease-in-out"
+            className="overflow-hidden rounded-2xl border border-white/20 bg-white/70 dark:bg-white/10 backdrop-blur-xl shadow-[0_0_50px_rgba(59,130,246,0.25)] transition-all duration-300 ease-in-out"
           >
             <div className="grid gap-0 md:grid-cols-2">
               <div className="relative h-64 overflow-hidden md:h-full">
@@ -28,10 +30,10 @@ export function Projects() {
               </div>
 
               <div className="p-6 sm:p-8">
-                <h3 className="text-2xl font-semibold tracking-tight text-white">{project.title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-slate-200">{project.description}</p>
+                <h3 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-white">{project.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-gray-600 dark:text-gray-400">{project.description}</p>
 
-                <ul className="mt-4 grid gap-2 text-sm text-slate-200">
+                <ul className="mt-4 grid gap-2 text-sm text-gray-600 dark:text-gray-400">
                   {project.features.map((feature) => (
                     <li key={feature} className="flex items-center gap-2">
                       <span className="h-1.5 w-1.5 rounded-full bg-blue-300" />
@@ -42,7 +44,7 @@ export function Projects() {
 
                 <div className="mt-5 flex flex-wrap gap-2">
                   {project.tech.map((item) => (
-                    <span key={item} className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs text-slate-200">
+                    <span key={item} className="rounded-full border border-white/25 bg-white/70 dark:bg-white/10 px-3 py-1 text-xs text-gray-600 dark:text-gray-400">
                       {item}
                     </span>
                   ))}
@@ -53,14 +55,14 @@ export function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur-xl transition-all duration-300 ease-in-out hover:scale-105"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/70 dark:bg-white/10 px-4 py-2 text-sm text-gray-900 dark:text-white backdrop-blur-xl transition-all duration-300 ease-in-out hover:scale-105"
                   >
-                    <img src={GithubIcon} alt="GitHub" className={brandIconClass} loading="lazy" />
+                    <BrandIcon src={GithubIcon} label="GitHub" className={brandIconClass} />
                     GitHub
                   </a>
                   <a
                     href="#"
-                    className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur-xl transition-all duration-300 ease-in-out hover:scale-105"
+                    className="inline-flex items-center gap-2 rounded-full border border-white/25 bg-white/70 dark:bg-white/10 px-4 py-2 text-sm text-gray-900 dark:text-white backdrop-blur-xl transition-all duration-300 ease-in-out hover:scale-105"
                   >
                     <ExternalLink size={16} />
                     Live Demo
@@ -74,3 +76,6 @@ export function Projects() {
     </Section>
   )
 }
+
+
+

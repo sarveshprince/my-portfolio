@@ -32,15 +32,15 @@ export function Skills() {
               whileHover={{ scale: 1.03, rotateX: 6, rotateY: -6 }}
               transition={{ duration: 0.35 }}
               style={{ transformStyle: 'preserve-3d' }}
-              className="rounded-2xl border border-white/20 bg-white/10 p-6 backdrop-blur-xl transition-all duration-300 ease-in-out hover:shadow-[0_0_40px_rgba(59,130,246,0.3)]"
+              className="rounded-2xl border border-white/20 bg-white/70 dark:bg-white/10 p-6 backdrop-blur-xl transition-all duration-300 ease-in-out hover:shadow-[0_0_40px_rgba(59,130,246,0.3)]"
             >
-              <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/20 text-white">
+              <div className="mb-4 inline-flex h-11 w-11 items-center justify-center rounded-xl bg-blue-500/20 text-gray-900 dark:text-white">
                 <Icon size={20} />
               </div>
-              <h3 className="text-lg font-semibold text-white">{category.title}</h3>
+              <h3 className="text-lg font-semibold text-gray-900 dark:text-white">{category.title}</h3>
               <div className="mt-4 flex flex-wrap gap-2">
                 {category.skills.map((skill) => (
-                  <span key={skill} className="rounded-full border border-white/25 bg-white/10 px-3 py-1 text-xs text-slate-200">
+                  <span key={skill} className="rounded-full border border-white/25 bg-white/70 dark:bg-white/10 px-3 py-1 text-xs text-gray-600 dark:text-gray-400">
                     {skill}
                   </span>
                 ))}
@@ -52,3 +52,5 @@ export function Skills() {
     </Section>
   )
 }
+
+
