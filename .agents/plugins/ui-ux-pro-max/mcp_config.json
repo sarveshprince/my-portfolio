@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "ui-ux-pro-max": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "ui-ux-pro-max"
+      ]
+    }
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "mcpServers": {
+    "everything-claude-code": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "everything-claude-code"
+      ]
+    },
+    "ui-ux-pro-max": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "ui-ux-pro-max"
+      ]
+    }
+  }
+}

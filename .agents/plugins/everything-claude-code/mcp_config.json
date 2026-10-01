@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "everything-claude-code": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "everything-claude-code"
+      ]
+    }
+  }
+}

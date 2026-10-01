@@ -23,6 +23,9 @@ export type Certification = {
   title: string
   organization: string
   link: string
+  icon: string        // lucide icon name or emoji
+  previewUrl?: string // Google Drive preview embed URL
+  color: string       // tailwind gradient classes for the icon badge
 }
 
 export type LeetCodeApiResponse = {

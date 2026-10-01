@@ -2,12 +2,12 @@ import { useEffect, useState } from 'react'
 import { Achievements } from './components/Achievements'
 import { Certifications } from './components/Certifications'
 import { Contact } from './components/Contact'
+import { Education } from './components/Education'
 import { Hero } from './components/Hero'
 import { LeetCodeDashboard } from './components/LeetCodeDashboard'
 import { Navbar } from './components/Navbar'
 import { Projects } from './components/Projects'
 import { Skills } from './components/Skills'
-import { Education } from './components/Education'
 
 function App() {
   const [theme, setTheme] = useState<'light' | 'dark'>('dark')
@@ -31,14 +31,32 @@ function App() {
   }
 
   return (
-    <div className="relative min-h-screen overflow-hidden bg-gradient-to-br from-[#f1f5f9] via-[#e2e8f0] to-[#cbd5f5] dark:bg-gradient-to-br dark:from-black dark:via-gray-900 dark:to-black text-gray-900 dark:text-white transition-colors duration-300">
-      <div className="pointer-events-none absolute -left-36 top-20 z-0 h-80 w-80 rounded-full bg-blue-400/10 blur-3xl transition-colors duration-300 dark:bg-blue-400/10" />
-      <div className="pointer-events-none absolute -right-40 top-1/3 z-0 h-96 w-96 rounded-full bg-purple-300/10 blur-3xl transition-colors duration-300 dark:bg-violet-500/20" />
-      <div className="pointer-events-none absolute bottom-0 left-1/3 z-0 h-72 w-72 rounded-full bg-cyan-300/10 blur-3xl transition-colors duration-300 dark:bg-cyan-500/20" />
+    <div className="relative min-h-screen overflow-hidden font-sans transition-colors duration-500
+      bg-[#f8fafc] dark:bg-[#060912]
+      text-gray-900 dark:text-white"
+    >
+      {/* ── Background grid ─────────────────────────── */}
+      <div
+        className="pointer-events-none fixed inset-0 z-0 opacity-100 dark:opacity-60"
+        style={{
+          backgroundImage: `linear-gradient(rgba(59,130,246,0.045) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(59,130,246,0.045) 1px, transparent 1px)`,
+          backgroundSize: '44px 44px',
+        }}
+      />
+
+      {/* ── Ambient blobs ───────────────────────────── */}
+      <div className="pointer-events-none fixed -left-48 top-0 z-0 h-[600px] w-[600px] rounded-full
+        bg-blue-400/8 blur-[120px] transition-colors duration-500 dark:bg-blue-600/12" />
+      <div className="pointer-events-none fixed -right-48 top-1/4 z-0 h-[500px] w-[500px] rounded-full
+        bg-violet-400/8 blur-[120px] transition-colors duration-500 dark:bg-violet-600/14" />
+      <div className="pointer-events-none fixed bottom-0 left-1/3 z-0 h-[400px] w-[400px] rounded-full
+        bg-cyan-400/6 blur-[100px] transition-colors duration-500 dark:bg-cyan-600/10" />
 
       <Navbar isDark={isDark} onThemeToggle={toggleTheme} />
-      <main className="relative z-10 pb-10 pt-24 sm:pt-28">
-        <Hero />
+
+      <main className="relative z-10 pb-16 pt-24 sm:pt-28">
+        <Hero isDark={isDark} />
         <Education />
         <Skills />
         <Projects />
@@ -47,11 +65,14 @@ function App() {
         <LeetCodeDashboard />
         <Contact />
       </main>
+
+      {/* ── Footer ──────────────────────────────────── */}
+      <footer className="relative z-10 border-t border-gray-200/80 py-6 text-center text-xs
+        text-gray-400 dark:border-white/8 dark:text-gray-600">
+        Crafted with ⚛️ React Three Fiber &amp; ❤️ by Sarvesh Kumar A
+      </footer>
     </div>
   )
 }
 
 export default App
-
-
-
