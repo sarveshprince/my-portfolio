@@ -200,14 +200,6 @@ function webGLSupported(): boolean {
   }
 }
 
-// ─── Loading spinner ─────────────────────────────────────────────────────────
-function Loader() {
-  return (
-    <div className="flex h-full items-center justify-center">
-      <div className="h-10 w-10 animate-spin rounded-full border-2 border-gray-300 border-t-blue-500" />
-    </div>
-  )
-}
 
 // ─── Public export ───────────────────────────────────────────────────────────
 export function HeroScene({ isDark }: { isDark: boolean }) {
